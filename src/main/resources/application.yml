@@ -1,0 +1,29 @@
+server:
+  port: 80
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: ${GOOGLE_CI}
+            clientSecret: ${GOOGLE_CS}
+          linkedin:
+            clientId: ${LINKEDIN_CI}
+            clientSecret: ${LINKEDIN_CS}
+            clientAuthenticationMethod: client_secret_post
+            authorizationGrantType: authorization_code
+            redirectUri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope: r_emailaddress, r_liteprofile
+            clientName: Linkedin
+        provider:
+          linkedin:
+            tokenUri: https://www.linkedin.com/oauth/v2/accessToken
+            authorizationUri: https://www.linkedin.com/oauth/v2/authorization
+            userInfoUri: https://api.linkedin.com/v2/me
+            userNameAttribute: id
+
+#logging:
+#  level:
+#    org.springframework.security: TRACE
