@@ -20,5 +20,5 @@ Step 2:
 To run this app:
 - After configure your application propertie file
   - run the project on your IDE
-  - access localhost:80 in your browser
+  - access http://localhost:80 in your browser
   - choose your authentication server
